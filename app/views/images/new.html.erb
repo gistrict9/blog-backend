@@ -1,0 +1,35 @@
+<% title "Upload Photo" %>
+
+<h1>Upload Photo</h1><br />
+
+<%= render 'form' %>
+
+
+<div class="photos">
+	<h4>Last 15 Uploads</h4>
+	<div class="table-responsive">
+	  <table class="table">
+	    <thead>
+	      <tr>
+	        <th>Photo</th>
+	        <th>Type</th>
+	        <th>Size</th>
+	        <th>Created</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	      <% @images.each do |image| %>
+	        <tr>
+	          <td><%= link_to image.photo_file_name, image.photo.url(:regular) %></td>
+	          <td><%= image.photo_content_type.partition('/').last.titleize %></td>
+	          <td><%= number_to_human_size(image.photo_file_size) %></td>
+	          <td><%= image.created_at.strftime('%m-%d-%Y %I:%M%P') %></td>
+	          <td><%= link_to 'Delete', image, method: :delete, data: { confirm: "Delete: #{image.photo_file_name}" } %></td>
+	        </tr>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+</div>

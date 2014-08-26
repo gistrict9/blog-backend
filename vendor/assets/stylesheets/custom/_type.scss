@@ -1,0 +1,33 @@
+//= Type
+//---------------
+
+// Fonts
+//
+//
+
+.logo-text-light {
+	font-family: "source-sans-pro", sans-serif;
+	font-style : normal;
+	font-weight: 200;
+	color      : #eaeaea;
+
+	a {
+		color          : #eaeaea;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+// Links
+//
+//
+
+.secondary-link {
+	color: $gray;
+
+	&:hover {
+		color: $gray;		
+	}
+}

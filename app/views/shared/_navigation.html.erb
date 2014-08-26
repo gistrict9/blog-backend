@@ -1,0 +1,50 @@
+<div class="navbar navbar-default row">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" style="width: 100%;" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu</button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="row">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul id="navigation" class="nav nav-pills">
+
+          <!-- Main links -->
+          <li class="<%= 'active' if params[:controller] === 'articles' && !current_page?(published_articles_path) %>"><%= link_to "Drafts", articles_path %></a></li>
+          <li class="<%= 'active' if current_page?(published_articles_path) %>"><%= link_to "Published", published_articles_path %></a></li>
+          <li class="<%= 'active' if params[:controller] === 'images' %>"><%= link_to 'Images', new_image_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Disqus</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="https://productionqa.disqus.com/admin/moderate/" target="_blank">ProductionQA</a></li>
+              <li><a href="https://sundaystruggle.disqus.com/admin/moderate/" target="_blank">SundayStruggle</a></li>
+            </ul>
+          </li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "secondary-link" %></li>
+
+          <!-- Search -->
+          <% if action_name === 'index' || action_name === 'published' %>
+            <li id="search" class="pull-right">
+              <% if action_name === 'index' %>
+                <%= form_tag articles_path, method: :get do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+                <% end %>
+              <% elsif action_name === 'published' %>
+                <%= form_tag published_articles_path, method: :get do %>
+                  <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+                <% end %>
+              <% end %>        
+            </li>
+          <% end %>     
+
+          <!-- Back button -->
+          <% unless action_name === 'index' || action_name === 'published' || action_name === 'prepare_publish' || controller_name === 'images' || @article.errors.any? %>
+            <li id="back" class="pull-right"><%= link_to 'Back', :back, class: 'btn btn-default' %></li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

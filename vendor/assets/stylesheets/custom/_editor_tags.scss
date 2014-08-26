@@ -1,0 +1,29 @@
+//= Editor Tags
+//---------------------------------
+
+// Container
+//
+// editor navigation container
+
+.editor {
+	width                : 100%;
+	background-color     : $gray-lighter;
+	margin-bottom        : 10px;
+	padding              : 6px;
+	-webkit-border-radius: $border-radius-base;
+	-moz-border-radius   : $border-radius-base;
+	-ms-border-radius    : $border-radius-base;
+	border-radius        : $border-radius-base;
+}
+
+.editor > ul {
+	margin-bottom: 0;
+}
+
+.editor > li {
+	margin-right: 8px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}

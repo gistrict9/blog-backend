@@ -1,0 +1,34 @@
+<% title "Publish Date & Tags" %>
+
+<h3 class="title"><%= @article.title %></h3>
+
+<%= simple_form_for @article, url: publish_article_path, html: {method: :post} do |f| %>
+  <% if @article.errors.any? %>
+    <div class="panel panel-default border-danger">
+      <div class="panel-heading background-color-danger"><%= pluralize(@article.errors.count, "error") %>:</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <% @article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label 'Tags' %>
+    <%= f.input :tag_list, label: false, error: false, placeholder: "Separate by comma", input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'Release' %>
+    <%= f.input :published_at, as: :string, label: false, error: false, input_html: { id: "publish-date", class: "form-control" } %>
+  </div>
+
+  <hr />
+
+  <div class="form-group">
+    <%= f.button :submit, "Publish", data: { confirm: "Publish: #{@article.title}" }, class: "btn btn-default" %>
+  </div>
+<% end %>

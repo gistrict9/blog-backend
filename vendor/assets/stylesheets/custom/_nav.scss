@@ -1,0 +1,25 @@
+//= Navs
+//--------------
+
+// Bootstrap navbar navbar-default override
+// for mobile menu
+//
+
+.navbar {
+	min-height   : 0;
+	margin-bottom: 0;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color    : transparent;
+}
+
+.container-fluid > .navbar-header {
+	margin-left : 0;
+	margin-right: 0;
+}
+
+.navbar-toggle {
+	float: left;
+}

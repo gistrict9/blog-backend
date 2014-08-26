@@ -1,0 +1,23 @@
+//= Alerts
+//-----------------------------
+
+// Alerts box
+//
+// overrides bootstrap panel to display form alerts
+
+.border-danger {
+	border: 1px solid $brand-danger;
+}
+
+.panel-default > .panel-heading.background-color-danger {
+	background-color: $brand-danger;
+	color           : white;
+}
+
+// Published
+//
+//
+
+.not-live {
+	color: $brand-success;
+}

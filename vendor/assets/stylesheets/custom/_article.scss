@@ -1,0 +1,93 @@
+// Articles
+//-----------------
+
+// Article
+//
+// css for article show page preview
+
+article > h1,h2,h3,h4,h5,h6 {
+	font-family: "ff-dagny-web-pro", sans-serif;
+	font-style : normal;
+	font-weight: 700;
+	margin-top: 6px;
+	margin-bottom: 15px;
+}
+
+article > .article-content {
+	font-family: "ff-dagny-web-pro", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: $font-size-base * 1.6; // 22px
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	color: $gray;
+}
+
+.article-content > p, blockquote, pre {
+	margin-bottom: 25px;
+}
+
+.article-content > ol, ul {
+	margin-bottom: 25px;
+}
+
+@media(min-width: 480px) {
+	.article-content > .gist {
+		width: 100%;
+		font-size: 12px;
+		margin-bottom: 25px;
+	}
+}
+
+@media(min-width: 768px) {
+	.article-content > .gist {
+		width: 100%;
+		font-size: 14px;
+		margin-bottom: 25px;
+	}
+}
+
+@media(min-width: 1025px) {
+	.article-content > .gist {
+		width: 100%;
+		font-size: 16px;
+		margin-bottom: 25px;
+	}
+}
+
+.title {
+	margin: 35px 0 35px 0;  // publish date page
+}
+
+// Image
+//
+// 
+
+img {
+	border: 2px solid $gray-light;
+}
+
+@media(max-width: 768px) {
+	img {
+		width: 100%;
+	}
+}
+
+.image {
+	display: block;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+	margin-bottom: 25px;
+}
+
+.wrap-img {
+	display: inline-block;
+	text-align: left;
+}
+
+figcaption {
+	color: lighten($gray-light, 25%);
+	font-size: 18px;
+}

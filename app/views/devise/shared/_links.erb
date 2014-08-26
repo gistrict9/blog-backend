@@ -1,0 +1,17 @@
+<%- if controller_name != 'sessions' %>
+	<span style="margin-right: 30px;">
+  	<%= link_to "Login", login_path %>
+	</span>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <span style="margin-right: 30px;">
+  	<%= link_to "Reset password", reset_password_path %>
+  </span>
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+	<span style="margin-right: 30px;">
+  	<%= link_to "Unlock account", unlock_account_path %>
+  </span>
+<% end -%>

@@ -1,0 +1,40 @@
+<% title "Drafts" %>
+
+<h1 data-no-turbolink>
+  Drafts
+  <%= link_to 'Create', new_article_path, class: 'btn btn-default pull-right' %>
+</h1>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Updated</th>
+        <th id="article-actions-draft"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td data-no-turbolink><%= link_to article.title, article %></td>
+          <td><%= article.user.full_name %></td>
+          <td><%= article.updated_at.strftime('%m-%d-%Y %I:%M%P') %></td>
+          <td>
+            <ul class="list-unstyled list-inline">
+              <li data-no-turbolink><%= link_to 'Edit', edit_article_path(article) %></li>
+              <li><%= link_to 'Destroy', article, method: :delete, data: { confirm: "Delete: #{article.title}" } %></li>
+              <li data-no-turbolink><%= link_to 'Publish', prepare_publish_article_path(article) %></li>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= "No draft articles matching your search were found." if @articles.count === 0 %>
+
+<%= paginate @articles %>

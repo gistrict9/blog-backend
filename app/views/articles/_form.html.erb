@@ -1,0 +1,76 @@
+<%= simple_form_for @article do |f| %>
+  <% if @article.errors.any? %>
+    <div class="panel panel-default border-danger">
+      <div class="panel-heading background-color-danger"><%= pluralize(@article.errors.count, "error") %>:</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <% @article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.input :title, autofocus: true, error: false, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :preview_image_url, 'Preview Image' %>
+    <%= f.input :preview_image_url, error: false, label: false, placeholder: 'https://s3_path', input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :user_id, as: :hidden, error: false, input_html: { value: current_user.id } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :description, error: false, input_html: { id: "description", class: "form-control" } %>
+  </div>
+  <div class="char-count hidden"></div>
+
+  <div class="form-group">
+    <%= f.label 'Content' %>
+    <%= render partial: "shared/editor_tags" %>
+    <%= f.input :content, label: false, error: false, input_html: { rows: 14, class: "form-control" } %>
+  </div>
+
+  <% unless action_name === 'new' || (action_name === 'edit' && @article.published === false) %>
+    <div class="form-group">
+      <%= f.label 'Tags' %>
+      <%= f.input :tag_list, label: false, error: false, placeholder: "Separate by comma", input_html: { class: "form-control" } %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div><%= f.label 'Status' %></div>
+    <span class="radio">
+      <% if action_name === 'new' %>
+        <%= f.collection_radio_buttons :published, [[false, 'Draft']], :first, :last, checked: false, error: false, label: false %>
+      <% elsif @article.published === true %>
+        <%= f.collection_radio_buttons :published, [[true, 'Published']], :first, :last, error: false, label: false %>
+      <% else %>
+        <%= f.collection_radio_buttons :published, [[false, 'Draft']], :first, :last, checked: false, error: false, label: false %>
+      <% end %>
+    </span>
+  </div>
+
+  <% if @article.published_at %>
+    <div class="form-group">
+      <%= f.label :published_at, 'Publish Date' %>
+      <%= f.input :published_at, as: :string, label: false, error: false, disabled: true, input_html: { id: "publish-date", class: "form-control" } %>
+    </div>
+  <% end %>
+
+  <hr />
+
+  <div class="form-group">
+    <ul class="list-unstyled list-inline">
+      <li><%= f.button :submit, "Save", class: "btn btn-default" %></li>
+      <% if action_name === 'edit' || @article.errors.any? %>
+        <li><%= f.button :submit, "Save & Close", class: "btn btn-default" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

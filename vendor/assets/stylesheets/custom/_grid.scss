@@ -1,0 +1,53 @@
+//= Grid
+//-----------------
+
+// Page
+//
+// page and authentication wrappers
+
+.page {
+	margin: 15px; // app wrapper
+}
+
+.page-centered {
+	margin    : 85px 0;
+	padding   : 0;
+	text-align: center;
+}
+
+.box-centered {
+	max-width       : 500px;
+	margin          : 0px auto;
+	text-align      : left;
+	padding         : 15px;
+	border          : 1px dashed $gray-light;
+	background-color: lighten($brand-secondary, 12.5%);
+}
+
+// Helpers
+//
+//
+
+.spacer {
+	margin: 15px 0 5px 0;
+}
+
+// Table
+//
+//
+
+.table > thead > tr > th#article-actions-draft {
+	min-width: 170px;
+}
+
+.table > thead > tr > th#article-actions-published {
+	min-width: 150px;
+}
+
+// Photos
+//
+//
+
+.photos {
+	margin-top: 55px;
+}

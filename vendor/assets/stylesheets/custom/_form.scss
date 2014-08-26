@@ -1,0 +1,54 @@
+//= Forms
+//------------------
+
+// Radio buttons
+//
+// override radio block display
+
+.radio {
+  display: inline;
+}
+
+// Radio Inputs
+//
+// radio input for button-esque style
+
+input[type=radio] {
+  display              : none; 
+  margin               : 10px;
+}
+ 
+input[type=radio] + label {
+  display              : inline-block;
+  margin               : -2px;
+  padding              : 4px 12px;
+  background-color     : $brand-secondary;
+  -webkit-border-radius: $border-radius-base;
+  -moz-border-radius   : $border-radius-base;
+  -ms-border-radius    : $border-radius-base;
+  border-radius        : $border-radius-base;
+}
+
+input[type=radio]:checked + label { 
+  font-weight     : bold;
+  background-image: none;
+  background-color: darken($brand-secondary, 12.5%);
+  border          : 4px solid darken($brand-secondary, 12.5%);
+}
+
+// UI Widget
+//
+// override font size
+
+.ui-widget {
+  font-size: 0.9em;
+}
+
+// Character count
+//
+//
+
+.char-count {
+  margin: -10px 0 14px 0;
+  color: $brand-danger;
+}

@@ -1,0 +1,25 @@
+<%= simple_form_for @image, html: { multipart: true } do |f| %>
+  <% if @image.errors.any? %>
+    <div class="panel panel-default border-danger">
+      <div class="panel-heading background-color-danger"><%= pluralize(@image.errors.count, "error") %>:</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <% @image.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+	<div class="form-group">
+		<%= f.file_field :photo, error: false, input_html: { class: "form-control" } %>
+	</div>
+
+  <hr />
+
+  <div class="form-group">
+    <%= f.button :submit, "Upload", class: "btn btn-default" %>
+  </div>
+
+<% end %>
