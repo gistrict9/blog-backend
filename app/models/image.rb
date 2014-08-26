@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
 
 	# Includes
 	has_attached_file :photo,
-		:styles => { :preview => "150x225>", :regular => "600x600>" }
+		:styles => { :regular => "600x600>" }
 
 	# Validations
 	validates_attachment :photo, :presence => true,
