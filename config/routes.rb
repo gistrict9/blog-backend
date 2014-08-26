@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'published', on: :collection #view and scope
     put 'unpublish', on: :member # action
     post 'publish', on: :member # action
-    get 'prepare_publish', on: :member # set date for release
+    get 'prepare_publish', on: :member # set tags and release date
   end
 
   # Devise

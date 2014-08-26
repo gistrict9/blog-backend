@@ -80,7 +80,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PUT /articles/1/publish_date
+  # PUT /articles/1/prepare_publish
   def prepare_publish
   end
 
