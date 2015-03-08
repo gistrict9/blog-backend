@@ -13,6 +13,3 @@ This is a fully functional administrative backend for a blog. It contains the fo
 - Mobile ready
 
 There is no form of role management at this time. It uses MySQL as the backend database.
-
-#### Use
-Create a new core Rails app and then fork this repository.
